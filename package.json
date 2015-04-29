@@ -1,0 +1,49 @@
+{
+  "name": "yadi",
+  "description": "YADI.js - Yet Another Dependency Injector",
+  "version": "0.1.0",
+  "main": "dist/yadi",
+  "author": "Max Davidson <davidsonmax@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "di"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxdavidson/yadi"
+  },
+  "bugs": {
+    "url": "https://github.com/maxdavidson/yadi/issues"
+  },
+  "jspm": {
+    "directories": {},
+    "dependencies": {},
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.1.13",
+      "babel-runtime": "npm:babel-runtime@^5.1.13",
+      "core-js": "npm:core-js@^0.9.4"
+    }
+  },
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "gulp": "^3.8.11",
+    "gulp-babel": "^5.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0",
+    "jspm": "^0.15.5",
+    "karma": "^0.12.31",
+    "karma-babel-preprocessor": "^5.1.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.1.8",
+    "karma-firefox-launcher": "^0.1.4",
+    "karma-jspm": "^1.1.4",
+    "karma-mocha": "^0.1.10",
+    "karma-source-map-support": "^1.0.0",
+    "mocha": "^2.2.4"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "jspm-install": "node ./node_modules/jspm/jspm install",
+    "test": "npm run jspm-install && ./node_modules/karma/bin/karma start --single-run --browsers Firefox"
+  }
+}
