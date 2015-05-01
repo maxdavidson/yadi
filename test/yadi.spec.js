@@ -8,12 +8,40 @@ class Dog {
     }
 }
 
+// ES7 decorator syntax
 @inject(Animal)
 class Farm {
     constructor(animal) {
         this.animal = animal;
     }
 }
+
+// ES7 class property syntax
+class FarmES7 {
+    static inject = [Animal];
+    constructor(animal) {
+        this.animal = animal;
+    }
+}
+
+// Standard ES6 syntax
+class FarmES6 {
+    static inject() { return [Animal]; }
+    constructor(animal) {
+        this.animal = animal;
+    }
+}
+
+// ES5 syntax
+var FarmES5 = (function () {
+    function Farm(animal) {
+        this.animal = animal;
+    }
+
+    Farm.inject = [Animal];
+
+    return Farm;
+})();
 
 describe('Injector', () => {
 
@@ -43,12 +71,15 @@ describe('Injector', () => {
         expect(animal).to.be.an.instanceOf(Dog);
     });
 
-    it('should wire up instances for decorated classes', async () => {
+    it('should create instances of classes with injected dependencies', async () => {
         injector.register(Animal).toInstanceOf(Dog);
 
-        const farm = await injector.create(Farm);
+        for (let FarmType of [Farm, FarmES7, FarmES6, FarmES5]) {
+            const farm = await injector.create(FarmType);
 
-        expect(farm.animal).to.be.an.instanceOf(Dog);
+            expect(farm).to.be.an.instanceOf(FarmType);
+            expect(farm.animal).to.be.an.instanceOf(Dog);
+        }
     });
 
     it('should register dependencies as values', async () => {

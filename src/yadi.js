@@ -88,7 +88,7 @@ export class Injector {
         let deps = constructor.inject || [];
 
         if (typeof deps === 'function') {
-            deps = inject.call(constructor);
+            deps = deps.call(constructor);
         }
 
         return Promise.all(deps.map(this.get, this)).then(args => new constructor(...args));
