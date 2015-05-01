@@ -1,7 +1,7 @@
 {
   "name": "yadi",
   "description": "YADI.js - Yet Another Dependency Injector",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/yadi",
   "author": "Max Davidson <davidsonmax@gmail.com>",
   "license": "MIT",
