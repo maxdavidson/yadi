@@ -32,7 +32,6 @@
     "gulp-git": "^1.2.1",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.2.0",
-    "jspm": "^0.15.5",
     "karma": "^0.12.31",
     "karma-babel-preprocessor": "^5.1.0",
     "karma-chai": "^0.1.0",
@@ -44,8 +43,6 @@
     "mocha": "^2.2.4"
   },
   "scripts": {
-    "build": "gulp build",
-    "jspm-install": "node ./node_modules/jspm/jspm install",
-    "test": "npm run jspm-install && ./node_modules/karma/bin/karma start --single-run --browsers Firefox"
+    "test": "./node_modules/karma/bin/karma start --single-run --browsers Firefox"
   }
 }
